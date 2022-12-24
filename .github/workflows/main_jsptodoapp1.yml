@@ -37,10 +37,9 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:
-     - name: Download workflow artifact
-       uses: dawidd6/action-download-artifact@v2.24.2
-
+    steps:      
+      -name: Download artifact from build job
+        uses: actions/download-artifact@v2
         with:
           name: java-app
 
